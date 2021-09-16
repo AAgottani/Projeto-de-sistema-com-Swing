@@ -47,7 +47,10 @@ public class BuscaClientePedido extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         nomeClienteBuscaPedido = new javax.swing.JTextField();
         buscarClientePedidopq = new javax.swing.JButton();
-        adicionarNomeClientePedido = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        movelBusca = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        buscaPedido = new javax.swing.JTextField();
 
         jLabel1.setText("Cliente :");
 
@@ -58,12 +61,9 @@ public class BuscaClientePedido extends javax.swing.JFrame {
             }
         });
 
-        adicionarNomeClientePedido.setText("Adicionar");
-        adicionarNomeClientePedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adicionarNomeClientePedidoActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Movel:");
+
+        jLabel3.setText("Pedido:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,13 +71,14 @@ public class BuscaClientePedido extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeClienteBuscaPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(buscarClientePedidopq, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(adicionarNomeClientePedido, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(nomeClienteBuscaPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                    .addComponent(buscarClientePedidopq, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movelBusca)
+                    .addComponent(buscaPedido))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -85,54 +86,69 @@ public class BuscaClientePedido extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nomeClienteBuscaPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buscarClientePedidopq)
-                    .addComponent(adicionarNomeClientePedido))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(movelBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buscaPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(buscarClientePedidopq)
+                .addGap(63, 63, 63))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     
-    public  String retornaNome(){
-        return nomeCliente;
-        
-    }
-    private void adicionarNomeClientePedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarNomeClientePedidoActionPerformed
-        // TODO add your handling code here:
-        // Adiciona o nome do cliente na tela de busca do pedido
-        BuscaClientePedido busca= new BuscaClientePedido();
-        busca.retornaNome();
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_adicionarNomeClientePedidoActionPerformed
-
+  
     private void buscarClientePedidopqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClientePedidopqActionPerformed
         // TODO add your handling code here:
+        // Recebe o texto no campo de busca do 
         String nome= nomeClienteBuscaPedido.getText();
+        String movel= movelBusca.getText();
+        String pedido= buscaPedido.getText();
+        String caminho;
+        int sw;
+        if(movel != null){
+            caminho= ("C:/sabineM/arq_01.txt");
+            sw=1;
+        }else if(nome != null){
+            caminho= ("C:/sabineM/arq_02.txt");
+            sw=2;
+        }else if(pedido!= null){
+            caminho= ("C:/sabineM/arq_03.txt");
+            sw=3;
+        }else{
+            caminho =null;
+            sw=0;
+        }
         
   try{
-        input = new Scanner(Paths.get("C:/sabineM/arq_01.txt"));
+        input = new Scanner(Paths.get(caminho));
     }catch (IOException ioException){
         System.err.println("Error opening file. Terminating.");
         System.exit(1);
     }
-  
+    //Pattern busca o termo recebido na váriavel nome
     Pattern termo= compile(nome) ;
    
 try{
     
     while (input.hasNext()) // enquanto houver mais para ler
     {
-        String l= input.next();
+        String l= input.next();//A variável l recebe o próximo termo
         
-        if(l.equals(nome)){   
+        if(l.equals("Nome:"+nome)){ //se l for igual ao nome  
         
         //TODO 
         nomeCliente= l;
+        //JOptionPane.showMessageDialog(null, l);
+        
         break;
         }else{
             
@@ -190,9 +206,12 @@ try{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton adicionarNomeClientePedido;
+    private javax.swing.JTextField buscaPedido;
     private javax.swing.JButton buscarClientePedidopq;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField movelBusca;
     private javax.swing.JTextField nomeClienteBuscaPedido;
     // End of variables declaration//GEN-END:variables
 

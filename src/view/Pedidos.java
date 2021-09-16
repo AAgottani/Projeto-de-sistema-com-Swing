@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
  
 /**
@@ -70,7 +71,7 @@ public class Pedidos extends javax.swing.JFrame {
         salvarPedido = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Número do pedido:");
 
@@ -307,7 +308,7 @@ public class Pedidos extends javax.swing.JFrame {
         // TODO add your handling code here:
         //salvar pedido
         try {
-          FileWriter  fw = new FileWriter ("C:/sabineM/arq_01.txt", true);
+          FileWriter  fw = new FileWriter ("C:/sabineM/arq_03.txt", true);
           BufferedWriter bw = new BufferedWriter( fw );
           
           bw.write("Numero do Pedido: " + nPedido.getText());
@@ -345,6 +346,7 @@ public class Pedidos extends javax.swing.JFrame {
           bw.newLine( );
           bw.close( );
           fw.close( );
+          
         } catch (IOException ex) {
             Logger.getLogger(TelaCadastroMoveis.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -355,8 +357,8 @@ public class Pedidos extends javax.swing.JFrame {
         //Botão buscar cliente
         BuscaClientePedido busca= new BuscaClientePedido();
         busca.setVisible(true);
-        clientePedido.setText(busca.retornaNome());
-        
+        //clientePedido.setText(busca.retornaNome());
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         
     
@@ -393,9 +395,11 @@ public class Pedidos extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Pedidos().setVisible(true);
+                
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clienteBuscarTelag;

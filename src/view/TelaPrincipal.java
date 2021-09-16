@@ -129,8 +129,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void MenuCadastrarMovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCadastrarMovelActionPerformed
         // TODO add your handling code here:
+        //Instancia um objeto
         TelaCadastroMoveis telaCadMov = new TelaCadastroMoveis();
+        //Adiciona o objeto instanciado
         jDesktopPane1.add(telaCadMov);
+        // modifica a visibilidade da tela
         telaCadMov.setVisible(true);
     }//GEN-LAST:event_MenuCadastrarMovelActionPerformed
 
@@ -141,6 +144,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        
         telaCadastroClientes cad = new telaCadastroClientes();
         cad.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed

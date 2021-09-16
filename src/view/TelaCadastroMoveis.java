@@ -253,6 +253,7 @@ public class TelaCadastroMoveis extends javax.swing.JInternalFrame {
 
     private void salvarcadMovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarcadMovActionPerformed
         // TODO add your handling code here:
+        // As variáveis recebem o texto dos campos
        TelaCadastroMoveis lista= new TelaCadastroMoveis();
        String nomeMovel = lista.getNomeMovelCadastro().getText();
        String pesoCadMovel= lista.getCampoPesoCadastro().getText();
@@ -276,6 +277,8 @@ public class TelaCadastroMoveis extends javax.swing.JInternalFrame {
        
         
         try {
+            
+          //Escritor instanciado abre o arquivo txt  
           FileWriter  fw = new FileWriter ("C:/sabineM/arq_01.txt", true);
           BufferedWriter bw = new BufferedWriter( fw );
           

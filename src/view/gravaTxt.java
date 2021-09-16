@@ -47,6 +47,7 @@ public class gravaTxt {
         }
         java.io.File arquivo = new java.io.File(diretorio, "arq_01.txt"); 
         java.io.File arquivo2 = new java.io.File(diretorio, "arq_02.txt"); 
+        java.io.File arquivo3 = new java.io.File(diretorio, "arq_03.txt");
         if(!arquivo.exists() || !arquivo2.exists()){
         
         //java.io.File arquivo2 = new java.io.File(diretorio, "arq_02.txt");
