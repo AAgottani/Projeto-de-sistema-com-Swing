@@ -38,6 +38,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         menuPedidos = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        consultaPedidoMenu = new javax.swing.JMenuItem();
+        clienteConsultaMenu = new javax.swing.JMenuItem();
+        movelConsultaMenu = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +107,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Consultar");
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
+
+        consultaPedidoMenu.setText("Pedido");
+        consultaPedidoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultaPedidoMenuActionPerformed(evt);
+            }
+        });
+        jMenu3.add(consultaPedidoMenu);
+
+        clienteConsultaMenu.setText("Cliente");
+        clienteConsultaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteConsultaMenuActionPerformed(evt);
+            }
+        });
+        jMenu3.add(clienteConsultaMenu);
+
+        movelConsultaMenu.setText("Móvel");
+        movelConsultaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                movelConsultaMenuActionPerformed(evt);
+            }
+        });
+        jMenu3.add(movelConsultaMenu);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -144,7 +177,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        
+        // Torna a tela visivel quando selecionada no menu de consulta
         telaCadastroClientes cad = new telaCadastroClientes();
         cad.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -154,6 +187,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Pedidos pedidos= new Pedidos();
         pedidos.setVisible(true);
     }//GEN-LAST:event_menuPedidosActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void consultaPedidoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaPedidoMenuActionPerformed
+        // TODO add your handling code here:
+        BuscaPedido busca= new BuscaPedido();
+        busca.setVisible(true);
+    }//GEN-LAST:event_consultaPedidoMenuActionPerformed
+
+    private void clienteConsultaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteConsultaMenuActionPerformed
+        // TODO add your handling code here:
+        BuscaCliente cliente= new BuscaCliente();
+        cliente.setVisible(true);
+    }//GEN-LAST:event_clienteConsultaMenuActionPerformed
+
+    private void movelConsultaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movelConsultaMenuActionPerformed
+        // TODO add your handling code here:
+        BuscaMovel movel= new BuscaMovel();
+        movel.setVisible(true);
+    }//GEN-LAST:event_movelConsultaMenuActionPerformed
 
     
     /**
@@ -200,6 +256,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MenuCadastrarMovel;
+    private javax.swing.JMenuItem clienteConsultaMenu;
+    private javax.swing.JMenuItem consultaPedidoMenu;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -208,5 +266,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem menuPedidos;
+    private javax.swing.JMenuItem movelConsultaMenu;
     // End of variables declaration//GEN-END:variables
 }

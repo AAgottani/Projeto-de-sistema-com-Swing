@@ -127,7 +127,9 @@ public class BuscaClientePedido extends javax.swing.JFrame {
             caminho =null;
             sw=0;
         }
-        
+        switch(sw){
+            case 1:
+    
   try{
         input = new Scanner(Paths.get(caminho));
     }catch (IOException ioException){
@@ -136,18 +138,22 @@ public class BuscaClientePedido extends javax.swing.JFrame {
     }
     //Pattern busca o termo recebido na váriavel nome
     Pattern termo= compile(nome) ;
-   
+    JOptionPane.showMessageDialog(null, termo);
 try{
     
     while (input.hasNext()) // enquanto houver mais para ler
     {
         String l= input.next();//A variável l recebe o próximo termo
         
-        if(l.equals("Nome:"+nome)){ //se l for igual ao nome  
+        if(l.equals(nome)){ //se l for igual ao nome  
+        
         
         //TODO 
+        
+        
         nomeCliente= l;
-        //JOptionPane.showMessageDialog(null, l);
+        JOptionPane.showMessageDialog(null, l);
+       
         
         break;
         }else{
@@ -168,7 +174,7 @@ try{
    
    
     }//GEN-LAST:event_buscarClientePedidopqActionPerformed
-
+}
     
     /**
      * @param args the command line arguments
