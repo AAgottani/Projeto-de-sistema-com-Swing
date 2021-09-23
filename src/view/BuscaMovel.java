@@ -5,6 +5,16 @@
  */
 package view;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -29,21 +39,34 @@ public class BuscaMovel extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         nomeMovelBusca = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Movel:");
+
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(nomeMovelBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(280, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(nomeMovelBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(jButton1)))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -52,11 +75,59 @@ public class BuscaMovel extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nomeMovelBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        // Botão de busca de móvel
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("C:/sabineM/arq_03.txt"));
+            Scanner teclado = new Scanner (System.in);
+           
+           String nomeBusca= nomeMovelBusca.getText();
+            String s = br.readLine();
+            while((s = br.readLine()) != null){
+                 String[] textoSeparado = s.split(";");
+                 for(int i=0; i<textoSeparado.length; i++){
+                      
+                       if(textoSeparado[i].equals("Número do Pedido: " + nomeBusca)){
+                       
+                       
+                       String a=textoSeparado[i];
+                       String b=textoSeparado[i+1];
+                       String c=textoSeparado[i+2];
+                       String d=textoSeparado[i+3];
+                       String e=textoSeparado[i+4];
+                       String f=textoSeparado[i+5];
+                       String g=textoSeparado[i+6];
+                       String h=textoSeparado[i+7];
+                       String j=textoSeparado[i+8];
+                       String k=textoSeparado[i+9];
+                       String l=textoSeparado[i+10];
+                       String m=textoSeparado[i+11];
+                       String n=textoSeparado[i+12];
+                       String o=textoSeparado[i+13];
+                       
+                      
+                       
+                        String mensagem=(a +"\n" + b +"\n" + c +"\n" + d + "\n"+ e+"\n" + f+"\n" + g+"\n"+ h+"\n" 
+                                + j+"\n"+ k+"\n"+ l+"\n"+ m+"\n" +n +"\n" + o +"\n");
+                       JOptionPane.showMessageDialog(null,mensagem );
+                       setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                       }
+                 }    }//fim do for
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(BuscaPedido.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(BuscaPedido.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,6 +165,7 @@ public class BuscaMovel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nomeMovelBusca;
     // End of variables declaration//GEN-END:variables
