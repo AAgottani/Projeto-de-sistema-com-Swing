@@ -308,45 +308,47 @@ public class Pedidos extends javax.swing.JFrame {
         // TODO add your handling code here:
         //salvar pedido
         try {
+            //cria leitor de arquivo 
           FileWriter  fw = new FileWriter ("C:/sabineM/arq_03.txt", true);
           BufferedWriter bw = new BufferedWriter( fw );
+          //variaveis capturadas
+          bw.write("Número do Pedido: " + nPedido.getText()+";");
           
-          bw.write("Numero do Pedido: " + nPedido.getText());
-          bw.newLine( );
-          bw.write("Cliente: " + this.clientePedido.getText() + " ");
-          bw.write("Produto: " + produto.getText()+ " ");
+          bw.write("Cliente: " + this.clientePedido.getText()+ ";");
+          bw.write("Produto: " + produto.getText()+ ";");
           
           bw.write("Quantidade: " + this.qtdPedido.getText());
-          bw.newLine( );
-          bw.write("Produto: " + this.produto2.getText()+" ");
-          bw.write("Quantidade: " + this.qtd2.getText()+" ");
-          bw.newLine( );
-          bw.write("Forma de pagamento: " + this.formaPagamento.getText());
-          bw.newLine( );
-          bw.write("Preço: " + this.precoPedido.getText()+ " ");
           
-          bw.write("Plataforma: " + plataformaPedido.getText() );
-          bw.newLine( );
-          bw.write("Prazo: " + prazo.getText() );
-          bw.newLine( );
-          bw.write("Valor do Frete: " + frete.getText() );
-          bw.newLine( );
-          bw.write("Simulação: " + simulacao.getText() );
-          bw.newLine( );
-          bw.write("Cotação: " + cotacao.getText() );
-          bw.newLine( );
-          bw.write("Nota fiscal: " + notaFiscal.getText() );
+          bw.write("Produto: " + this.produto2.getText()+";");
+          bw.write("Quantidade: " + this.qtd2.getText()+";");
+          
+          bw.write("Forma de pagamento: " + this.formaPagamento.getText()+";");
         
-          bw.newLine( );
-          bw.write("Data de envio: " + notaFiscal.getText() );
-          bw.newLine( );
-          bw.write("Valor Madeira: " + valorMadeira.getText() );
-          bw.write("************************" );
+          bw.write("Preço: " + this.precoPedido.getText()+ ";");
+          
+          bw.write("Plataforma: " + plataformaPedido.getText()+";" );
+          
+          bw.write("Prazo: " + prazo.getText()+";" );
+          
+          bw.write("Valor do Frete: " + frete.getText()+";" );
+         
+          bw.write("Simulação: " + simulacao.getText() +";");
+          
+          bw.write("Cotação: " + cotacao.getText() +";");
+          
+          bw.write("Nota fiscal: " + notaFiscal.getText() +";");
+        
+          
+          bw.write("Data de envio: " + notaFiscal.getText()+";" );
+          
+          bw.write("Valor Madeira: " + valorMadeira.getText() +";");
+          
+          // Exibe a mensagem em uma janela
           JOptionPane.showMessageDialog(null, "Tá salvo ");
-          bw.newLine( );
+          //fecha o leitor de arquivo
           bw.close( );
           fw.close( );
-          
+          setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         } catch (IOException ex) {
             Logger.getLogger(TelaCadastroMoveis.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -5,8 +5,10 @@
  */
 package view;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -83,14 +85,52 @@ public class BuscaPedido extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         // Botão de busca de pedidos
-        String chave = buscaPedido.getText();
-        String local = "C:/sabineM/arq_03.txt";
+          
         try {
-            JOptionPane.showMessageDialog(null, "botão acionado");
-            BuscaPedido.getValor(chave, local);
-        } catch (FileNotFoundException ex) {
+            BufferedReader br = new BufferedReader(new FileReader("C:/sabineM/arq_03.txt"));
+            Scanner teclado = new Scanner (System.in);
+           
+           String nomeBusca= buscaPedido.getText();
+            String s = br.readLine();
+            while((s = br.readLine()) != null){
+                 String[] textoSeparado = s.split(";");
+                 for(int i=0; i<textoSeparado.length; i++){
+                      
+                       if(textoSeparado[i].equals("Número do Pedido: " + nomeBusca)){
+                       
+                       
+                       String a=textoSeparado[i];
+                       String b=textoSeparado[i+1];
+                       String c=textoSeparado[i+2];
+                       String d=textoSeparado[i+3];
+                       String e=textoSeparado[i+4];
+                       String f=textoSeparado[i+5];
+                       String g=textoSeparado[i+6];
+                       String h=textoSeparado[i+7];
+                       String j=textoSeparado[i+8];
+                       String k=textoSeparado[i+9];
+                       String l=textoSeparado[i+10];
+                       String m=textoSeparado[i+11];
+                       String n=textoSeparado[i+12];
+                      
+                       
+                        String mensagem=(a +"\n" + b +"\n" + c +"\n" + d + "\n"+ e+"\n" + f+"\n" + g+"\n"+ h+"\n" 
+                                + j+"\n"+ k+"\n"+ l+"\n"+ m+"\n" +n +"\n");
+                       JOptionPane.showMessageDialog(null,mensagem );
+                       }
+                 }    }//fim do for
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(BuscaPedido.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(BuscaPedido.class.getName()).log(Level.SEVERE, null, ex);
         }
+         
+            
+            
+     
+                //System.out.println(s);
+                 
+                
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -127,21 +167,25 @@ public class BuscaPedido extends javax.swing.JFrame {
             }
         });
     }
+    
     private static String getValor(String chave, String local)
             throws FileNotFoundException {
         String valor = "";
         Scanner in = new Scanner(new FileReader(local));
-        while (in.hasNextLine()) {
+        int contador=0;
+        while (in.hasNextLine()|| contador > 1000) {
             String line = in.nextLine();
             String[] linha = line.split(" ");
 
-            if (linha[0].equals(chave)) {
-                valor = linha[1];
-                JOptionPane.showMessageDialog(null, valor);
+            if (linha[contador].equals(chave)) {
+                valor = linha[contador];
+                
                 break;
             } else {
                 valor = "erro";
+                contador++;
             }
+            
         }
         JOptionPane.showMessageDialog(null, valor);
         return valor;
