@@ -315,11 +315,13 @@ public class Pedidos extends javax.swing.JFrame {
           bw.write("Número do Pedido: " + nPedido.getText()+";");
           
           bw.write("Cliente: " + this.clientePedido.getText()+ ";");
+          
           bw.write("Produto: " + produto.getText()+ ";");
           
-          bw.write("Quantidade: " + this.qtdPedido.getText());
+          bw.write("Quantidade: " + this.qtdPedido.getText()+";");
           
           bw.write("Produto: " + this.produto2.getText()+";");
+          
           bw.write("Quantidade: " + this.qtd2.getText()+";");
           
           bw.write("Forma de pagamento: " + this.formaPagamento.getText()+";");

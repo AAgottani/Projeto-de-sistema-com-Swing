@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -112,11 +113,14 @@ public class BuscaPedido extends javax.swing.JFrame {
                        String l=textoSeparado[i+10];
                        String m=textoSeparado[i+11];
                        String n=textoSeparado[i+12];
+                       String o=textoSeparado[i+13];
+                       
                       
                        
                         String mensagem=(a +"\n" + b +"\n" + c +"\n" + d + "\n"+ e+"\n" + f+"\n" + g+"\n"+ h+"\n" 
-                                + j+"\n"+ k+"\n"+ l+"\n"+ m+"\n" +n +"\n");
+                                + j+"\n"+ k+"\n"+ l+"\n"+ m+"\n" +n +"\n" + o +"\n");
                        JOptionPane.showMessageDialog(null,mensagem );
+                       setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                        }
                  }    }//fim do for
             } catch (FileNotFoundException ex) {
