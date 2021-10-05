@@ -87,7 +87,7 @@ public class BuscaMovel extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Botão de busca de móvel
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C:/sabineM/arq_03.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("C:/sabineM/arq_01.txt"));
             Scanner teclado = new Scanner (System.in);
            
            String nomeBusca= nomeMovelBusca.getText();
@@ -112,12 +112,15 @@ public class BuscaMovel extends javax.swing.JFrame {
                        String l=textoSeparado[i+10];
                        String m=textoSeparado[i+11];
                        String n=textoSeparado[i+12];
-                       String o=textoSeparado[i+13];
+                       
+                       
+                       
+                       
                        
                       
                        
                         String mensagem=(a +"\n" + b +"\n" + c +"\n" + d + "\n"+ e+"\n" + f+"\n" + g+"\n"+ h+"\n" 
-                                + j+"\n"+ k+"\n"+ l+"\n"+ m+"\n" +n +"\n" + o +"\n");
+                                + j+"\n"+ k+"\n"+ l+"\n"+ m+"\n" +n +"\n" );
                        JOptionPane.showMessageDialog(null,mensagem );
                        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                        }

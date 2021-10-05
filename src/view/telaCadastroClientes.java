@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -192,29 +193,31 @@ public class telaCadastroClientes extends javax.swing.JFrame {
             fw = new FileWriter ("C:/sabineM/arq_02.txt", true);
         
         BufferedWriter bw = new BufferedWriter( fw );
-        bw.write("Nome: " + nomeCliente.getText());
-        bw.newLine( );
-        bw.write("Cpf: " + this.cpfCliente.getText() + " ");
-        bw.newLine( );
-        bw.write("Cep: " + this.cepCliente.getText());
-        bw.newLine( );
-        bw.write("Cidade: " + this.cidadeCliente.getText());
-        bw.newLine( );
-        bw.write("Estado: " + this.estadoCliente.getText());
-        bw.newLine( );
-        bw.write("Contato: " + this.contatoCliente1.getText());
-        bw.newLine( );
-        bw.write("Contato: " + this.contatoCliente2.getText());
-        bw.newLine( );
-        bw.write("************************" );
+        bw.write("Nome: " + nomeCliente.getText()+";");
+        
+        bw.write("Cpf: " + this.cpfCliente.getText() + ";");
+        
+        bw.write("Cep: " + this.cepCliente.getText()+";");
+       
+        bw.write("Cidade: " + this.cidadeCliente.getText()+";");
+        
+        bw.write("Estado: " + this.estadoCliente.getText()+";");
+       
+        bw.write("Contato: " + this.contatoCliente1.getText()+";");
+        
+        bw.write("Contato: " + this.contatoCliente2.getText()+";");
+       
+        
         JOptionPane.showMessageDialog(null, "Tá salvo ");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         bw.newLine( );
         bw.close( );
-        
-            fw.close( );
+        fw.close( );
+            
         } catch (IOException ex) {
             Logger.getLogger(telaCadastroClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

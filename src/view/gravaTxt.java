@@ -54,11 +54,12 @@ public class gravaTxt {
           try {
 	boolean statusArq = arquivo.createNewFile();
 	boolean statusArq2 = arquivo2.createNewFile();
+	boolean statusArq3 = arquivo3.createNewFile();
         
 	System.out.print(statusArq);
             } catch (IOException e) {
             //e.printStackTrace(); 
-            JOptionPane.showMessageDialog(null, "fudeu");
+            JOptionPane.showMessageDialog(null, "fudeu!");
 }
         }
     }

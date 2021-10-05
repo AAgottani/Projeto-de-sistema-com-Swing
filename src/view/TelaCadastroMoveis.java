@@ -282,32 +282,34 @@ public class TelaCadastroMoveis extends javax.swing.JInternalFrame {
           FileWriter  fw = new FileWriter ("C:/sabineM/arq_01.txt", true);
           BufferedWriter bw = new BufferedWriter( fw );
           
-          bw.write("Móvel: " + NomeMovelCadastro.getText());
-          bw.newLine( );
-          bw.write("Plataforma: " + this.plataformaCad1.getText() + " ");
-          bw.write("Preço: " + campoPrecoCadastro.getText());
-          bw.newLine( );
-          bw.write("Plataforma: " + this.plataformaCad2.getText());
-          bw.write("Preço: " + this.precoCad2.getText());
-          bw.newLine( );
-          bw.write("Plataforma: " + this.plataformaCad3.getText());
-          bw.write("Preço: " + this.precoCad3.getText());
-          bw.newLine( );
-          bw.write("Material");
-          bw.newLine( );
-          bw.write(this.qtdCad1.getText()+ " " + this.materialCad.getText() );
-          bw.newLine( );
-          bw.write(this.qtdCad2.getText()+ " " + this.materialCad2.getText() );
-          bw.newLine( );
-          bw.write(this.qtdCad3.getText()+ " " + this.materialCad3.getText() );
-          bw.newLine( );
-          bw.write(this.qtdCad4.getText()+ " " + this.materialCad4.getText() );
-          bw.newLine( );
-          bw.write(this.qtdCad5.getText()+ " " + this.materialCad5.getText() );
-          bw.newLine( );
-          bw.write("************************" );
+          bw.write("Móvel: " + NomeMovelCadastro.getText()+";");
+          
+          bw.write("Plataforma: " + this.plataformaCad1.getText()+";");
+          
+          bw.write("Preço: " + campoPrecoCadastro.getText()+";");
+        
+          bw.write("Plataforma: " + this.plataformaCad2.getText()+";");
+          
+          bw.write("Preço: " + this.precoCad2.getText()+";");
+          
+          bw.write("Plataforma: " + this.plataformaCad3.getText()+";");
+          bw.write("Preço: " + this.precoCad3.getText()+";");
+          
+          bw.write("Material" +";");
+          
+          bw.write(this.qtdCad1.getText()+ " " + this.materialCad.getText()+";" );
+          
+          bw.write(this.qtdCad2.getText()+ " " + this.materialCad2.getText()+";" );
+          
+          bw.write(this.qtdCad3.getText()+ " " + this.materialCad3.getText() +";");
+          
+          bw.write(this.qtdCad4.getText()+ " " + this.materialCad4.getText() +";");
+          
+          bw.write(this.qtdCad5.getText()+ " " + this.materialCad5.getText()+";" );
+        
+          
           JOptionPane.showMessageDialog(null, "Tá salvo ");
-          bw.newLine( );
+          
           bw.close( );
           fw.close( );
         } catch (IOException ex) {
